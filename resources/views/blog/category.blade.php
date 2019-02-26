@@ -19,4 +19,5 @@
 		{{$articles->links()}}
 	</div>
 
+	
 @endsection

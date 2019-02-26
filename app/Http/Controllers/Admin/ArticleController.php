@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Article;
+use App\Comments;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -110,6 +111,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         $article->categories()->detach();
+        $article->comments()->delete();
         $article->delete();
 
         return redirect()->route('admin.article.index');
